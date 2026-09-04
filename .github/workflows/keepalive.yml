@@ -1,0 +1,13 @@
+name: keep-shaurya-awake
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake the brain
+        run: curl -s -m 90 "https://shaurya.onrender.com/" || true

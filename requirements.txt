@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+google-genai
+ddgs
+requests
+python-dotenv
+huggingface_hub
+cryptography

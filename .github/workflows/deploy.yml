@@ -1,0 +1,18 @@
+name: deploy-shaurya
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tell Render to rebuild
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            "https://api.render.com/v1/services/srv-daci7i0ae00c73fdn8pg/deploys" \
+            -d '{"clearCache":"do_not_clear"}'
